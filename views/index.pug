@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title} hello world 
+
+  button(type="button", class="btn btn-primary", onclick="moreClaps()") Press Me
+
+  p 
+  div(id="target") Clap for me 
+  script. 
+    var clap_count=0;
+    function moreClaps(){
+      clap_count+=1;
+      document.getElementById("target").innerHTML="Value is "+clap_count  ;
+    }
+
+     a(href="aeroplane") Go to aeroplane page
+  
