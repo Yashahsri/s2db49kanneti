@@ -83,5 +83,5 @@ async function recreateDB(){
 
   }
   let reseed = true;
-  if (reseed) { recreateDB();}
+  //if (reseed) { recreateDB();}
 module.exports = app;

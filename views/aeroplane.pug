@@ -2,7 +2,7 @@ extends layout
 
 block content
   h1= title
-  - let aeroplanes = [{name:"QATAR", type:"Business", noofpassengers: 50},{name:"Air India", type:"First class", noofpassengers: 100},{name:"Emirates", type:"Economy", noofpassengers: 100}]
+  - let aeroplanes = results 
   div(class="container-fluid") 
    div(class="row")
     each aeroplane,index in aeroplanes
