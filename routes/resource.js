@@ -17,4 +17,16 @@ router.put('/aeroplanes/:id', aeroplane_controller.aeroplane_update_put);
 router.get('/aeroplanes/:id', aeroplane_controller.aeroplane_detail);
 // GET request for list of all aeroplane items.
 router.get('/aeroplanes', aeroplane_controller.aeroplane_list);
+
+/* GET detail aeroplane page */
+router.get('/detail', aeroplane_controller.aeroplane_view_one_Page);
+
+/* GET create aeroplane page */
+router.get('/create', aeroplane_controller.aeroplane_create_Page);
+
+/* GET create update page */
+router.get('/update', aeroplane_controller.aeroplane_update_Page);
+
+/* GET delete aeroplane page */
+router.get('/delete', aeroplane_controller.aeroplane_delete_Page);
 module.exports = router;

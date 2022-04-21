@@ -1,0 +1,40 @@
+extends layout
+
+block content
+  h1= title
+  - let aeroplaneid = toShow._id
+  - let name = toShow.name
+  - let type = toShow.type
+  - let noofpassengers = toShow.noofpassangers
+  div.row(class='mb-2')
+  div.mr-1 ID is
+  div #{aeroplaneid}
+  - let actionid = "/resource/aeroplanes/" + aeroplaneid
+  form(id='aeroplaneForm', action= actionid, method="DELETE")
+    div.form-group
+      label.aeroplaneAttr(for='name') aeroplane name
+      input#name(type='text', name='name', value= name )
+    div.form-group
+      label.aeroplaneAttr(for='type') aeroplane type
+      input#type(type='text', name='type', value= type )
+    div.form-group
+      label.aeroplaneAttr(for='noofpassengers') noofpassengers
+      input#noofpassengers(type='number', name='noofpassengers', value= noofpassengers )
+    input(type="submit")
+  script.
+    document.forms['aeroplaneForm'].addEventListener('submit', (event) => {
+    event.preventDefault();
+    // TODO do something here to show user that form is being submitted
+    fetch(event.target.action, {
+    method: 'DELETE',
+    body: new URLSearchParams(new FormData(event.target)) // event.target is the form
+    }).then((resp) => {
+    return resp.json(); // or resp.text() or whatever the server sends
+    }).then((body) => {
+    alert("Delete succeded")
+    // TODO handle body
+    }).catch((error) => {
+    // TODO handle error
+    alert("Update failed " + error )
+    });
+    });

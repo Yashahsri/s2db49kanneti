@@ -1,0 +1,20 @@
+extends layout
+block content
+   h1= title
+   - let aeroplaneid = toShow._id
+   - let name = toShow.name
+   - let type = toShow.type
+   - let noofpassengers = toShow.noofpassengers
+    div
+        div.row
+            div(class='aeroplaneAttr mr-3') aeroplane ID is:
+            div #{aeroplaneid}
+        div.row
+            div(class='aeroplaneAttr mr-3') aeroplane name is:
+            div #{name}
+        div.row
+            div(class='aeroplaneAttr mr-3') aeroplane type is:
+            div #{type}
+        div.row
+            div(class='aeroplaneAttr mr-3') aeroplane noofpassengers is:
+            div #{noofpassengers}
