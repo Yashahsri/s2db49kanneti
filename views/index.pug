@@ -1,19 +1,18 @@
 extends layout
-
 block content
-  h1= title
-  p Welcome to #{title} hello world 
+  h1 Welcome!
+  if (!user)
+    a(href="/login") 
+      button Login
+    br
+    br
+    a(href="/register") 
+      button Register
+  if (user)
+    p You are currently logged in as #{user.username}
+    a(href="/element") Take me to aeroplane
+    br
+    a(href="/logout") Logout
 
-  button(type="button", class="btn btn-primary", onclick="moreClaps()") Press Me
 
-  p 
-  div(id="target") Clap for me 
-  script. 
-    var clap_count=0;
-    function moreClaps(){
-      clap_count+=1;
-      document.getElementById("target").innerHTML="Value is "+clap_count  ;
-    }
-
-  a(href="aeroplane") Go to aeroplane page
   

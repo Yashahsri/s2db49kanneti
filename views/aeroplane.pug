@@ -1,16 +1,26 @@
 extends layout
 
 block content
+  - let destination_craete = `dispatch(\"/resource/update/create\")`
+  button.btn( class="btn-primary ml-1", onclick= destination_create) Create Aeroplane
   h1= title
   - let aeroplanes = results 
   div(class="container-fluid") 
-   div(class="row")
+   div(class="row m-1")
     each aeroplane,index in aeroplanes
+        - let destination = `dispatch(\"/resource/update?id=${aeroplane._id}\")`
+        - let destination_detail = `dispatch(\"/resource/detail?id=${aeroplane._id}\")`
+        - let destination_delete = `dispatch(\"/resource/delete?id=${aeroplane._id}\")`
         div(class="col-sm-2" onclick=`buy(${index})`) name: #{aeroplane.name} , type: #{aeroplane.type} , noofpassengers: #{aeroplane.noofpassengers} 
-
-   script. 
+         button.btn( class="btn-primary ml-1", onclick= destination) Update
+         button.btn( class="btn-primary ml-1", onclick= destination_detail) Detail
+         button.btn( class="btn-primary ml-1", onclick= destination_delete) Delete
+  script. 
     let itemNo=0
      function buy(itemNo)
      {
         alert(`You purchased Item ${itemNo+1}`)
+     }
+     function dispatch(path){
+     window.location.href=path
      }
